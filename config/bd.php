@@ -1,19 +1,21 @@
-<?php 
+<?php
 
-//Arquivo de conexao com o banco de dados.
-$svName = "ns158.hostgator.com.br";
-$userName = "image862_pjVeter";
-$passwd = "784512";
-$db = "image862_pjVeterinaria";
+/**
+ * Classe responsavel pelo banco de dados
+ * Conexao com o banco de dados
+ */
+ class db
+ {
+ 	
+ 	public function conexao(){ 
 
-//Create a new connection to the mysql database
-$conn = new mysqli($svName, $userName, $passwd);
+		//Dados do banco
+		$conexao = mysqli_connect('ns158.hostgator.com.br', 'image862_pjVeter', '784512', 'image862_pjVeterinaria');
 
-//check connection
-if ($conn->connect_error) {
-	die("Erro na conexao: " . $conn->connect_error);
-} else {
-	echo "Conexao com sucesso!";
+		//verifica a conexao
+		if (!$conexao) {
+			echo "Error:" . mysqli_connect_error();
+		}
+	}
 }
-
 ?>
